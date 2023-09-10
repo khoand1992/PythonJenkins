@@ -13,7 +13,7 @@ pipeline {
     }
     stage('init virtualenv') {
       steps {
-        sh 'virtualenv venv'
+        sh 'python3 -m virtualenv venv'
       }
     }
     stage('enable virtualenv') {
