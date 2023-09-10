@@ -1,3 +1,4 @@
-from . import helloworld
+from hellopackage.helloworld import helloboy
 
-helloboy()
+if __name__ == "__main__":
+    helloboy()
