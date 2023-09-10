@@ -1,6 +1,7 @@
 from hellopackage.helloworld import helloboy
 from hellopackage.printStatus import print_status
 from readCSV.readData import readTitanicData
+from APIEndpoint.JsonPlaceHolder import getResponseJSON
 
 
 if __name__ == "__main__":
@@ -8,3 +9,5 @@ if __name__ == "__main__":
     print_status()
     data_path = 'readCSV/titanic.csv'
     readTitanicData(data_path)
+    json_place_holder = getResponseJSON('https://jsonplaceholder.typicode.com/posts/1')
+    print(json_place_holder)
