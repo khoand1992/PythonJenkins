@@ -9,5 +9,5 @@ if __name__ == "__main__":
     print_status()
     data_path = 'readCSV/titanic.csv'
     readTitanicData(data_path)
-    json_place_holder = getResponseJSON('https://jsonplaceholder.typicode.com/posts/1')
-    print(json_place_holder)
+    df = getResponseJSON('https://jsonplaceholder.typicode.com/posts/1')
+    print(df)

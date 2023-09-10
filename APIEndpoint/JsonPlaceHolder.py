@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 
 def getResponseJSON(endpoint_url):
@@ -11,4 +12,5 @@ def getResponseJSON(endpoint_url):
         if status_code == 200:
             response_json = response.json()
             response = response_json
+            response = pd.json_normalize(response)
     return response
