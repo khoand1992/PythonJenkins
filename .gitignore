@@ -1,2 +1,4 @@
 .dccache
 .idea/
+.hellopackage/__pycache__/
+.readCSV/__pycache__/
