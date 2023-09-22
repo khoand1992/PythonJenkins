@@ -34,9 +34,7 @@ pipeline {
   }
   post {
     failure {
-        mail to: "kayd200123@gmail.com",
-        subject: "Test Email",
-        body: "Job failed"
+        emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
     }
   }
 }
