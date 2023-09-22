@@ -34,7 +34,9 @@ pipeline {
   }
   post {
     failure {
-        mail bcc: '', body: "<b>Example</b><br>Project: Build Tool <br>, cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI, to: "kayd200123@gmail.com";
+        mail to: "kayd200123@gmail.com",
+        subject: "Test Email",
+        body: "Job failed"
     }
   }
 }
