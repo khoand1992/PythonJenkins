@@ -1,49 +1,23 @@
-import smtplib, ssl
+# Import smtplib for the actual sending function
+import smtplib
+
+# Import the email modules we'll need
 from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 
+# Open a plain text file for reading.  For this example, assume that
+# the text file contains only ASCII characters.
+with open(textfile, 'rb') as fp:
+    # Create a text/plain message
+    msg = MIMEText(fp.read())
 
-def sendEmail():
-    sender_email = "kayd200123@gmail.com"
-    receiver_email = "khoanguyendang121292@gmail.com"
-    password = 'Kh@aKh@a121292'
+# me == the sender's email address
+# you == the recipient's email address
+msg['Subject'] = 'The contents of %s' % textfile
+msg['From'] = me
+msg['To'] = you
 
-    message = MIMEMultipart("alternative")
-    message["Subject"] = "multipart test"
-    message["From"] = sender_email
-    message["To"] = receiver_email
-
-    # Create the plain-text and HTML version of your message
-    text = """\
-    Hi,
-    How are you?
-    Real Python has many great tutorials:
-    www.realpython.com"""
-    html = """\
-    <html>
-      <body>
-        <p>Hi,<br>
-           How are you?<br>
-           <a href="http://www.realpython.com">Real Python</a> 
-           has many great tutorials.
-        </p>
-      </body>
-    </html>
-    """
-
-    # Turn these into plain/html MIMEText objects
-    part1 = MIMEText(text, "plain")
-    part2 = MIMEText(html, "html")
-
-    # Add HTML/plain-text parts to MIMEMultipart message
-    # The email client will try to render the last part first
-    message.attach(part1)
-    message.attach(part2)
-
-    # Create secure connection with server and send email
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(
-            sender_email, receiver_email, message.as_string()
-        )
+# Send the message via our own SMTP server, but don't include the
+# envelope header.
+s = smtplib.SMTP('localhost')
+s.sendmail(me, [you], msg.as_string())
+s.quit()

@@ -12,4 +12,4 @@ if __name__ == "__main__":
     readTitanicData(data_path)
     df = getResponseJSON('https://jsonplaceholder.typicode.com/posts/1')
     print(df)
-    sendEmail()
+    # sendEmail()

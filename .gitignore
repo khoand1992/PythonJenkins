@@ -1,6 +1,5 @@
 .dccache
 .idea/
 venv/
-hellopackage/__pycache__/
-readCSV/__pycache__/
-APIEndpoint/__pycache__/
+*/__pycache__
+__pycache__/
