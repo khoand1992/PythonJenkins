@@ -2,7 +2,7 @@ from hellopackage.helloworld import helloboy
 from hellopackage.printStatus import print_status
 from readCSV.readData import readTitanicData
 from APIEndpoint.JsonPlaceHolder import getResponseJSON
-# from SendEmail.RealPython import sendEmail
+from SendEmail.RealPython import sendEmail
 
 
 if __name__ == "__main__":
